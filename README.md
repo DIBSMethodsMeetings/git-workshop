@@ -2,35 +2,43 @@
 A living tutorial to discover the magical wonders of git.
 
 ## Table of contents
-1. [Why git?](#intro)
-   1. [How do you keep track of files?](#intro-files)
-   2. [What does git *do*?](#intro-git)
-   3. [What if I'm collaborating?](#intro-collaborate)
-2. [Terminology](#terminology)
-3. [Setup](#setup)
-   1. [Installation](#setup-install)
-   2. [Registration](#setup-register)
-4. [Make a repository](#create)
-   1. [Option 1: keep it local](#create-local)
-   2. [Option 2: code in the cloud](#create-cloud)
-5. [Make some changes](#change)
-6. [Commit your changes](#commit)
-7. [Switch between commits](#checkout)
-8. [Pushing and pulling](#push-pull)
-9. [Git branch: parallel universes](#branch)
-10. [Merging branches](#merge)
-    1. [Closing a branch](#merge-close)
-    2. [Updating a branch](#merge-update)
-    3. [Merge conflicts](#merge-conflicts)
-11. [Declaration of Git Wizardy](#declaration)
+1. [Why git?](https://github.com/DukeNeuroMethods/git-workshop#why-git)
+   - [How do you keep track of files?](https://github.com/DukeNeuroMethods/git-workshop#how-do-you-keep-track-of-your-changing-files-and-documents)
+   - [What does git *do*?](https://github.com/DukeNeuroMethods/git-workshop#what-does-git-do)
+   - [What if I'm collaborating?](https://github.com/DukeNeuroMethods/git-workshop#what-if-im-working-with-other-people-or-on-multiple-computers)
+2. [Terminology](https://github.com/DukeNeuroMethods/git-workshop#terminology)
+3. [Setup](https://github.com/DukeNeuroMethods/git-workshop#setup)
+   - [Installation](https://github.com/DukeNeuroMethods/git-workshop#installation)
+   - [Registration](https://github.com/DukeNeuroMethods/git-workshop#github-registration)
+4. [Make a repository](https://github.com/DukeNeuroMethods/git-workshop#make-a-repository)
+   - [Option 1: keep it local](https://github.com/DukeNeuroMethods/git-workshop#option-1-keep-it-local)
+   - [Option 2: code in the cloud](https://github.com/DukeNeuroMethods/git-workshop#option-2-code-in-the-cloud)
+   - [Exercise 1: clone this repository](https://github.com/DukeNeuroMethods/git-workshop#exercise-1-clone-this-repository)
+5. [Make some changes](https://github.com/DukeNeuroMethods/git-workshop#make-some-changes-change)
+   - [Exercise 2: edit this tutorial](https://github.com/DukeNeuroMethods/git-workshop#exercise-2-edit-this-tutorial)
+6. [Commit your changes](https://github.com/DukeNeuroMethods/git-workshop#commit-your-changes)
+   - [Exercise 3: stage your changes](https://github.com/DukeNeuroMethods/git-workshop#exercise-3-stage-your-changes)
+   - [Exercise 4: commit your changes](https://github.com/DukeNeuroMethods/git-workshop#exercise-4-commit-your-changes)
+7. [Switch between commits](https://github.com/DukeNeuroMethods/git-workshop#switch-between-commits-checkout)
+   - [Exercise 5: virtual time travel](https://github.com/DukeNeuroMethods/git-workshop#exercise-5-virtual-time-travel)
+8. [Pushing and pulling](https://github.com/DukeNeuroMethods/git-workshop#pushing-and-pulling)
+   - [Exercise 6: share your changes with the world](https://github.com/DukeNeuroMethods/git-workshop#exercise-6-share-your-changes-with-the-world)
+9. [Git branch: parallel universes](https://github.com/DukeNeuroMethods/git-workshop#git-branch-parallel-universes)
+   - [Exercise 7: make a branch](https://github.com/DukeNeuroMethods/git-workshop#exercise-7-make-a-branch)
+10. [Merging branches](https://github.com/DukeNeuroMethods/git-workshop#merging-branches)
+    - [Closing a branch](https://github.com/DukeNeuroMethods/git-workshop#closing-a-branch)
+    - [Updating a branch](https://github.com/DukeNeuroMethods/git-workshop#updating-a-branch)
+    - [Merge conflicts](https://github.com/DukeNeuroMethods/git-workshop#merge-conflicts)
+      - [Exercise 8: resolving a merge conflict](https://github.com/DukeNeuroMethods/git-workshop#exercise-8-resolving-a-merge-conflict)
+11. [Declaration of Git Wizardry](https://github.com/DukeNeuroMethods/git-workshop#declaration-of-git-wizardry)
 
 ---
 
-# Why git? {#intro}
+# Why git?
 
 git is a simple but highly flexible system for keeping track of stuff on one or more computers. But, everyone probably already has some way of doing the same thing. Why should I spend my time learning git?
 
-## How do you keep track of your changing files and documents? {#intro-files}
+## How do you keep track of your changing files and documents?
 
 If you're like most academics, you've probably got some version of this extremely versatile naming convention:
 
@@ -49,7 +57,7 @@ Now, this might be all you need if you've got a fantastic memory. But have you e
 
 Thankfully, some programmers got sick of doing this, and they've made a tool to make everyone's lives just that much easier. It's called **git**.
 
-## What does git *do*? {#intro-git}
+## What does git *do*?
 You can think of git as letting you set "save points" for your files, just like you hit save points in video games. Once you hit a save point, you can always go back to that version of your files at any time in the future.
 
 To do this, git will put in a (hidden) folder named `.git` inside your project folder. This `.git` folder keeps a list of all of the save points you've hit in the past. Specifically, it keeps track of which files change and what changes are made between save points. You'll end up with something like the graph below of save-points, where every version is made by changing some previous version. So if you start with a version 1, make some changes for version 2A, make some more changes for version 3A, make some different changes to version 1 for version 2B, and merge together version 3A and version 2B into version 4, git will store this graph:
@@ -58,12 +66,12 @@ To do this, git will put in a (hidden) folder named `.git` inside your project f
 
 As you can see, this is pretty useful: your older versions are always there for you to look back on, you can "branch" off into different directions from any version, and you can "merge" different branches with different sets of changes back into a final version.
 
-## What if I'm working with other people, or on multiple computers? {#intro-collaborate}
+## What if I'm working with other people, or on multiple computers?
 This is where [GitHub](https://github.com) comes in. It's a place where you can put your files online, so that anyone (with access) can download your files, make changes to them, and upload the new version for others.
 
 ---
 
-# Terminology {#terminology}
+# Terminology
 
 Before we get into the details of using git, let's set up some standard terminology:
 
@@ -82,8 +90,8 @@ Before we get into the details of using git, let's set up some standard terminol
 | Merge | to mix together two sets of changes from two different branches |
 
 ---
-# Setup {#setup}
-## Installation {#setup-install}
+# Setup
+## Installation
 
 | Windows | Mac OSX | Linux (Ubuntu) |
 | ------- | ------- | -------------- |
@@ -92,7 +100,7 @@ Before we get into the details of using git, let's set up some standard terminol
 
 In this tutorial, we will focus on using git within the terminal (I promise, you'll get the hang of it!). If you prefer to use an app (like [GitHub Desktop](https://desktop.github.com/) or [SourceTree](https://www.sourcetreeapp.com/)) with a graphical user interface (GUI) to use git, then feel free to do so. But in my experience, it's worth putting in the effort to learn the terminal commands because 1.) you won't have to deal with bugs, error messages, and intricate displays to which these apps are prone, and 2.) sometimes (like when working on a remote server or on a different operating system), you won't be able to use the app anyway.
 
-## GitHub registration {#setup-register}
+## GitHub registration
 Much of the time, you want to be able to share your files (code, documentation, etc) with collaborators, reviewers, readers, or even the rest of the world. GitHub is a great place to do that! In this organization, all of our workshop materials (demos, tutorials, blogs, slides) will be hosted on GitHub so that anyone can access these materials online at any point in the future. In order to make this happen, you will need to:
 
 1. Sign up for a GitHub account [here](https://github.com/join)
@@ -101,10 +109,10 @@ Much of the time, you want to be able to share your files (code, documentation, 
 ## And that's it!
 ---
 
-# Make a repository {#create}
+# Make a repository
 To take full reign of the capabilities that git has to offer, you need to make a git repository for your project. There are two ways to do this, depending on whether you want your repository to exist only on your computer or whether you want it to be hosted online through GitHub.
 
-### Option 1: keep it local {#create-local}
+### Option 1: keep it local
 If you're the only one that's going to do anything with your repository, or if the repository contains private information that you don't want to share with others, then it might make sense to keep the repository local to your computer. In this case, the process for creating a new repository or turning an existing folder into a git repository is easy peasy:
 
 1. Open up a terminal and navigate (using `cd`) to your project folder
@@ -112,7 +120,7 @@ If you're the only one that's going to do anything with your repository, or if t
 
 Congrats! You've now turned an ordinary folder into a git repository. You should now see that the folder has a sub-folder called `.git`, which is how you know that this folder is now a git repository.
 
-### Option 2: code in the cloud {#create-cloud}
+### Option 2: code in the cloud
 If you're going to be working on multiple computers, have multiple collaborators on your project, or simply want an online backup of your repository, then you probably want to put your repository on GitHub:
 
 1. Open your browser and navigate to https://github.com/new.
@@ -144,7 +152,7 @@ Congrats! You have now made a repository through GitHub and *cloned* (downloaded
 
 ---
 
-# Make some changes {#change}
+# Make some changes
 The magic of git doesn't really kick in until your files start changing. In practice, here is when you would add and edit some code, write up some documentation, or put some other kinds of files into your repository. For the purposes of this tutorial, we're going to ask you to edit this document (`README.md`):
 
 > ### Exercise 2: edit this tutorial
@@ -152,14 +160,14 @@ The magic of git doesn't really kick in until your files start changing. In prac
 > The [very last section of this document](#declaration) has a list of all of the highly esteemed individuals who have completed this tutorial. You might notice that something is missing here- **your name!** To make sure that everyone knows how skilled and accomplished you are, you need to add yourself to this list. So, here's what we need to do:
 >
 > 1. Open up the file `README.md` in your favorite text editor
-> 2. Scroll to the very end (the section entitled *Declaration of Git Wizardy*)
+> 2. Scroll to the very end (the section entitled *Declaration of Git Wizardry*)
 > 3. Add a new line at the end, and type in `- <First Name> <Last Name>`
 >
 > Congrats! Now everyone that opens this file on your computer knows that you are a git wizard.
 
 ---
 
-# Commit your changes {#commit}
+# Commit your changes
 
 Now that we've made some changes to our repository, we need to make a *commit*, which is like a "save-point" for our repository. This commit will allow us to recover this version of the repository at any point in the future, even if you have made further changes to these files, or even if you have deleted them completely. As long as your `.git` subfolder is still there, you can go back to this previous commit.
 
@@ -184,7 +192,7 @@ What just happened? By using `git add`, we've told git that we want to "save" th
 
 ---
 
-# Switch between commits {#checkout}
+# Switch between commits
 
 Even though you've just committed your changes, it might be hard to tell exactly what just happened. To see what you've just done, let's switch from your current commit to an earlier version of this repository and back.
 
@@ -201,7 +209,7 @@ So now we know what it means to have made a commit- it means that if you've got 
 
 ---
 
-# Pushing and pulling {#push-pull}
+# Pushing and pulling
 
 As you saw with your last `git status`, even though you have committed the addition of your name to `README.md`, git told you that this commit is **only** visible on your local computer. This means that your commit hasn't been uploaded to GitHub, and consequently, anyone else that cloned the repository will not be able to see your commit. But we don't just want to tell ourselves that we're git wizards, we want to tell *the world*!
 
@@ -221,7 +229,7 @@ And that's that! Now the entire world knows of your great accomplishments!
 
 ---
 
-# Git branch: parallel universes {#branch}
+# Git branch: parallel universes
 
 Let's say you wanted to make some changes in your repository that were going to take a long time, so you want to allow other people to continue working on the current version of your repository, while still being able to commit and push your changes to a separate place on GitHub. This is exactly what git branches are for- they create "parallel universes" of your repository, which allow for different versions of the repository to exist simultaneously.
 
@@ -242,15 +250,15 @@ In a sense, you've already been acquainted with branches: you've seen that this 
 
 ---
 
-# Merging branches {#merge}
-## Closing a branch {#merge-close}
+# Merging branches
+## Closing a branch
 If you're done with a branch, you may want to incorporate the changes made in that branch back into the `master` branch. We're not going to do an exercise here, but here's how you can do that:
 
 1. Switch back to the `master` branch using `git checkout master`
 2. Enter the command `git merge <branch-name>`
 3. If everything goes well, the merge is successful and a new commit will be made that signals that the two branches were merged.
 
-## Updating a branch {#merge-update}
+## Updating a branch
 If, conversely, you're still working on your branch but you want to incorporate some new changes on the `master` branch into your branch, you can do basically the same thing:
 
 1. Switch back to your branch using `git checkout <branch-name>`
@@ -259,7 +267,7 @@ If, conversely, you're still working on your branch but you want to incorporate 
 
 Finally, note that you can update your branch with changes from *any other branch*, not just the `master` branch. In that case, just use the proper branch name in your call to `git merge`.
 
-## Merge conflicts {#merge-conflicts}
+## Merge conflicts
 Sometimes, if the set of changes made in the two branches you're merging are incompatible with each other (say, each branch added a different line to the same file in the same place), you will get a warning that there was a *merge conflict*. To resolve this conflict, you simply need to choose which version of your file you want to keep.
 
 > ### Exercise 8: resolving a merge conflict
@@ -283,7 +291,7 @@ Sadly, the weird world of merge conflicts can get pretty messy, and most merge c
 
 ---
 
-# Declaration of Git Wizardy {#declaration}
+# Declaration of Git Wizardry
 If you made it all the way through this tutorial, congratulations! You now have all of the tools you need to start version-controlling like the best. As proof of your tremendous journey, add your name to this list of venerable scholars!
 
 We, the undersigned, hereby authorize ourselves as official git wizards:
