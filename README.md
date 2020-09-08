@@ -31,11 +31,43 @@ You can think of git as letting you set "save points" for your files, just like 
 
 To do this, git will put in a (hidden) folder named `.git` inside your project folder. This `.git` folder keeps a list of all of the save points you've hit in the past. Specifically, it keeps track of which files change and what changes are made between save points. You'll end up with something like the graph below of save-points, where every version is made by changing some previous version. So if you start with a version 1, make some changes for version 2A, make some more changes for version 3A, make some different changes to version 1 for version 2B, and merge together version 3A and version 2B into version 4, git will store this graph:
 
-```dot
-digraph G {
-  rankdir="LR"
-  {rank="same" "Version 2A" "Version 2B"}
-  "Version 1" -> "Version 2A" -> "Version 3A" -> "Version 4"
-  "Version 1" -> "Version 2B" -> "Version 4"
-}
-```
+![You should see an image here...](graph.png)
+
+As you can see, this is pretty useful: your older versions are always there for you to look back on, you can "branch" off into different directions from any version, and you can "merge" different branches with different sets of changes back into a final version.
+
+## What if I'm working with other people, or on multiple computers?
+This is where [GitHub](https://github.com) comes in. It's a place where you can put your files online, so that anyone (with access) can download your files, make changes to them, and upload the new version for others.
+
+---
+
+# Terminology
+
+Before we get into the details of using git, let's set up some standard terminology:
+
+| Jargon | Definition |
+| :---: | --- |
+| Repository | the folder that holds all of your files, as well as a `.git` sub-folder |
+| Commit (noun) | a "save-point" that freezes on version of your repository |
+| Commit (verb) | To create a new commit local to your computer |
+| Branch (noun) | a sequential chain of commits that has a name (e.g., "master") |
+| Branch (verb) | to create a new branch |
+| Clone | to download a repository from the internet to your computer |
+| Checkout | to switch to a commit (or, open a save-point) |
+| Fetch  | to update your `.git` folder with changes made online  |
+| Pull  | to apply new commits to your old repository- like "Fetch" but also applies new changes |
+| Push  | to update the online repository with your new commits  |
+| Merge | to mix together two sets of changes from two different branches |
+
+---
+# Setup
+## Installation
+
+| Windows | Mac OSX | Linux (Ubuntu) |
+| ------- | ------- | -------------- |
+| 1. [Follow these instructions!](https://gitforwindows.org/)<br> 2. Install [SourceTree](https://www.sourcetreeapp.com/) (optional) | 1. Install [HomeBrew](https://brew.sh/) <br> 2. Open a terminal <br> 3. Type in `brew install git` and press `Enter` <br> - Install [SourceTree](https://www.sourcetreeapp.com/) (optional) | 1. Open a terminal <br> 2. Type in `sudo apt-get install git` and press `Enter` |
+
+## GitHub Registration
+1. Sign up for a GitHub account [here](https://github.com/join)
+2. Join the [DukeNeuroMethods Organization](https://github.com/DukeNeuroMethods)!
+
+---

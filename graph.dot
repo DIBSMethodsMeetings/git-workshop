@@ -1,0 +1,6 @@
+digraph G {
+  rankdir="LR"
+  {rank="same" "Version 2A" "Version 2B"}
+  "Version 1" -> "Version 2A" -> "Version 3A" -> "Version 4"
+  "Version 1" -> "Version 2B" -> "Version 4"
+}
