@@ -1,15 +1,36 @@
 # git-workshop
 A living tutorial to discover the magical wonders of git.
-<br><br>
+
+## Table of contents
+1. [Why git?](#intro)
+   1. [How do you keep track of files?](#intro-files)
+   2. [What does git *do*?](#intro-git)
+   3. [What if I'm collaborating?](#intro-collaborate)
+2. [Terminology](#terminology)
+3. [Setup](#setup)
+   1. [Installation](#setup-install)
+   2. [Registration](#setup-register)
+4. [Make a repository](#create)
+   1. [Option 1: keep it local](#create-local)
+   2. [Option 2: code in the cloud](#create-cloud)
+5. [Make some changes](#change)
+6. [Commit your changes](#commit)
+7. [Switch between commits](#checkout)
+8. [Pushing and pulling](#push-pull)
+9. [Git branch: parallel universes](#branch)
+10. [Merging branches](#merge)
+    1. [Closing a branch](#merge-close)
+    2. [Updating a branch](#merge-update)
+    3. [Merge conflicts](#merge-conflicts)
+11. [Declaration of Git Wizardy](#declaration)
 
 ---
 
-# Why git?
+# Why git? {#intro}
 
 git is a simple but highly flexible system for keeping track of stuff on one or more computers. But, everyone probably already has some way of doing the same thing. Why should I spend my time learning git?
-<br>
 
-## How do you keep track of your changing files and documents?
+## How do you keep track of your changing files and documents? {#intro-files}
 
 If you're like most academics, you've probably got some version of this extremely versatile naming convention:
 
@@ -27,9 +48,8 @@ If you're working with a folder with multiple files changing inside, you probabl
 Now, this might be all you need if you've got a fantastic memory. But have you ever come back to one of these sorts of projects after a month, or a year of not looking at it? If so, you probably know that it's basically impossible to tell what the differences between the files are, why they're all different, and which file is *really* the final version.
 
 Thankfully, some programmers got sick of doing this, and they've made a tool to make everyone's lives just that much easier. It's called **git**.
-<br>
 
-## What does git *do*?
+## What does git *do*? {#intro-git}
 You can think of git as letting you set "save points" for your files, just like you hit save points in video games. Once you hit a save point, you can always go back to that version of your files at any time in the future.
 
 To do this, git will put in a (hidden) folder named `.git` inside your project folder. This `.git` folder keeps a list of all of the save points you've hit in the past. Specifically, it keeps track of which files change and what changes are made between save points. You'll end up with something like the graph below of save-points, where every version is made by changing some previous version. So if you start with a version 1, make some changes for version 2A, make some more changes for version 3A, make some different changes to version 1 for version 2B, and merge together version 3A and version 2B into version 4, git will store this graph:
@@ -37,16 +57,13 @@ To do this, git will put in a (hidden) folder named `.git` inside your project f
 ![You should see an image here...](graph.png)
 
 As you can see, this is pretty useful: your older versions are always there for you to look back on, you can "branch" off into different directions from any version, and you can "merge" different branches with different sets of changes back into a final version.
-<br>
 
-## What if I'm working with other people, or on multiple computers?
+## What if I'm working with other people, or on multiple computers? {#intro-collaborate}
 This is where [GitHub](https://github.com) comes in. It's a place where you can put your files online, so that anyone (with access) can download your files, make changes to them, and upload the new version for others.
-<br>
-<br>
 
 ---
 
-# Terminology
+# Terminology {#terminology}
 
 Before we get into the details of using git, let's set up some standard terminology:
 
@@ -63,12 +80,10 @@ Before we get into the details of using git, let's set up some standard terminol
 | Pull  | to apply new commits to your old repository- like "Fetch" but also applies new changes |
 | Push  | to update the online repository with your new commits  |
 | Merge | to mix together two sets of changes from two different branches |
-<br>
 
 ---
-# Setup
-
-## Installation
+# Setup {#setup}
+## Installation {#setup-install}
 
 | Windows | Mac OSX | Linux (Ubuntu) |
 | ------- | ------- | -------------- |
@@ -77,30 +92,27 @@ Before we get into the details of using git, let's set up some standard terminol
 
 In this tutorial, we will focus on using git within the terminal (I promise, you'll get the hang of it!). If you prefer to use an app (like [GitHub Desktop](https://desktop.github.com/) or [SourceTree](https://www.sourcetreeapp.com/)) with a graphical user interface (GUI) to use git, then feel free to do so. But in my experience, it's worth putting in the effort to learn the terminal commands because 1.) you won't have to deal with bugs, error messages, and intricate displays to which these apps are prone, and 2.) sometimes (like when working on a remote server or on a different operating system), you won't be able to use the app anyway.
 
-## GitHub registration
+## GitHub registration {#setup-register}
 Much of the time, you want to be able to share your files (code, documentation, etc) with collaborators, reviewers, readers, or even the rest of the world. GitHub is a great place to do that! In this organization, all of our workshop materials (demos, tutorials, blogs, slides) will be hosted on GitHub so that anyone can access these materials online at any point in the future. In order to make this happen, you will need to:
 
 1. Sign up for a GitHub account [here](https://github.com/join)
 2. Join the [DukeNeuroMethods Organization](https://github.com/DukeNeuroMethods)!
-<br>
 
 ## And that's it!
 ---
 
-# Make a repository
+# Make a repository {#create}
 To take full reign of the capabilities that git has to offer, you need to make a git repository for your project. There are two ways to do this, depending on whether you want your repository to exist only on your computer or whether you want it to be hosted online through GitHub.
-<br>
 
-### Option 1: keep it local
+### Option 1: keep it local {#create-local}
 If you're the only one that's going to do anything with your repository, or if the repository contains private information that you don't want to share with others, then it might make sense to keep the repository local to your computer. In this case, the process for creating a new repository or turning an existing folder into a git repository is easy peasy:
 
 1. Open up a terminal and navigate (using `cd`) to your project folder
 2. Type in the command `git init` and press `Enter`
 
 Congrats! You've now turned an ordinary folder into a git repository. You should now see that the folder has a sub-folder called `.git`, which is how you know that this folder is now a git repository.
-<br>
 
-### Option 2: code in the cloud
+### Option 2: code in the cloud {#create-cloud}
 If you're going to be working on multiple computers, have multiple collaborators on your project, or simply want an online backup of your repository, then you probably want to put your repository on GitHub:
 
 1. Open your browser and navigate to https://github.com/new.
@@ -118,8 +130,6 @@ If you're going to be working on multiple computers, have multiple collaborators
 7. Type in the command `git clone <repository-link>` and press `Enter`
 
 Congrats! You have now made a repository through GitHub and *cloned* (downloaded) it onto your computer! If the repository already exists on GitHub and you just need to clone it onto a new computer, you can start from Step 4 above.
-<br>
-
 
 > ### Exercise 1: clone [this repository](https://github.com/DukeNeuroMethods/git-workshop)!
 > You may have noticed that this very web-page is located on GitHub within a GitHub repository. To help get some practice using git and GitHub, we're going to all collaboratively edit this document together. To do this, you first need to *clone* this repository, which exists online on GitHub, into a copy that exists on your computer. Thankfully, this looks exactly like steps 4-7 above:
@@ -134,9 +144,8 @@ Congrats! You have now made a repository through GitHub and *cloned* (downloaded
 
 ---
 
-# Make some changes
+# Make some changes {#change}
 The magic of git doesn't really kick in until your files start changing. In practice, here is when you would add and edit some code, write up some documentation, or put some other kinds of files into your repository. For the purposes of this tutorial, we're going to ask you to edit this document (`README.md`):
-<br>
 
 > ### Exercise 2: edit this tutorial
 >
@@ -150,7 +159,7 @@ The magic of git doesn't really kick in until your files start changing. In prac
 
 ---
 
-# Commit your changes
+# Commit your changes {#commit}
 
 Now that we've made some changes to our repository, we need to make a *commit*, which is like a "save-point" for our repository. This commit will allow us to recover this version of the repository at any point in the future, even if you have made further changes to these files, or even if you have deleted them completely. As long as your `.git` subfolder is still there, you can go back to this previous commit.
 
@@ -163,10 +172,7 @@ Now that we've made some changes to our repository, we need to make a *commit*, 
 > 4. Again, type in the command `git status` to make sure that all of (and only) the changes you want to stage are staged.
 >     - If you accidentally staged some changes that you don't want staged, you can enter the command `git reset HEAD <filename>`. This will unstage the file, but keep the changes on your computer.
 
-<br>
-
 What just happened? By using `git add`, we've told git that we want to "save" the change we just made. Specifically, we told git that in our next commit, your name will listed at the end of `README.md`. But, we haven't yet done the "saving" part- we still need to commit our changes.
-<br>
 
 > ### Exercise 4: commit your changes
 > Now that we've told git which changes we want to commit and which changes we want to hold out, we can commit our staged changes!
@@ -178,18 +184,108 @@ What just happened? By using `git add`, we've told git that we want to "save" th
 
 ---
 
-# Switch between commits
+# Switch between commits {#checkout}
 
+Even though you've just committed your changes, it might be hard to tell exactly what just happened. To see what you've just done, let's switch from your current commit to an earlier version of this repository and back.
+
+> ### Exercise 5: virtual time travel
+> If you've run the `git log` on this repository, you have seen that your commit isn't the only one there. There are older versions of this repository as well. To access these older versions, we can use the command `git checkout`:
+>
+> 1. Open up a terminal and navigate to your local repository
+> 2. Type in the command `git log --all --decorate --oneline --graph`. If you scroll to the bottom, you'll see that the first commit to this repository is commit number `9d17d90` with the description `Initial commit`.
+> 3. To get to that commit, type in the command `git checkout 9d17d90`. You will get some warning messages about a 'detached HEAD', but you can ignore them for now.
+> 4. Now inspect your directory (using `ls` or through Finder/etc). You should see that some files are missing, and the `README.md` file is almost entirely empty. This is how the repository looked when it was first created.
+> 5. To get back to your new commit, type in the command `git checkout master`. You should now see that `README.md` again looks just as it had when you made your last commit.
+
+So now we know what it means to have made a commit- it means that if you've got some version of this repository, you can always `git log` to find that previous commit and `git checkout` to access it. Pretty nifty stuff!
 
 ---
 
-# Push your changes
+# Pushing and pulling {#push-pull}
 
-As you saw with your last `git status`, even though you
+As you saw with your last `git status`, even though you have committed the addition of your name to `README.md`, git told you that this commit is **only** visible on your local computer. This means that your commit hasn't been uploaded to GitHub, and consequently, anyone else that cloned the repository will not be able to see your commit. But we don't just want to tell ourselves that we're git wizards, we want to tell *the world*!
+
+In git, we use the words *push* and *pull* to signify uploading and downloading, respectively. So `git push` lets you upload your new commits to GitHub, and `git pull` lets you download any new commits from GitHub to your local computer.
+
+> ### Exercise 6: share your changes with the world
+> In order to tell the world that you're a git wizard, you need to *push* your new commit to GitHub. But, there's a catch: if your local repository isn't up to date with GitHub, then you could overwrite some new commits and cause problems. To avoid messy scenarios like this, always ***pull*** before you ***push***. Repeat after me: always ***pull*** before you ***push***!
+>
+> 1. Open up a terminal and navigate to your local repository
+> 2. Enter in the command `git pull origin master`, or simply `git pull`. The `origin` part tells git that we want to pull from the `origin` remote repository located on GitHub, and the `master` part tells git that we want to pull from the `master` branch
+>     - If you just want to make new changes on GitHub visible *without* applying those changes, you can use `git fetch` instead of `git pull`
+> 3. Enter in the command `git status`- if nothing went wrong, you should just see that the new commits have been applied. If there are problems, you will get a warning message that there was a "merge conflict". If that's the case, then you're going to want to jump ahead to the section on [merging branches together](#merge)
+> 4. Now that we know our repository is up to date, we can go ahead and `git push origin master` (or simply `git push`) to upload our new commits to GitHub
+> 5. Run `git status` again, which should tell you something like `On branch master. Your branch is up to date with 'origin/master'`. If you're still skeptical that your changes have been made, you can go to the repository on GitHub in your browser and check for yourself that your name is here
+
+And that's that! Now the entire world knows of your great accomplishments!
+
+---
+
+# Git branch: parallel universes {#branch}
+
+Let's say you wanted to make some changes in your repository that were going to take a long time, so you want to allow other people to continue working on the current version of your repository, while still being able to commit and push your changes to a separate place on GitHub. This is exactly what git branches are for- they create "parallel universes" of your repository, which allow for different versions of the repository to exist simultaneously.
+
+In a sense, you've already been acquainted with branches: you've seen that this whole time we've been working on, committing to, and pushing to the `master` branch of this repository. Every repository has a `master` branch, which serves like a "default" branch or a "main" branch. But, if you want, you can also create other branches too!
+
+> ### Exercise 7: make a branch
+> To get a sense of how to use branches, we're going to create a dummy branch, make & commit some changes to it, and then delete it since we don't really need it after all.
+>
+> 1. Open up a terminal and navigate to your local repository
+> 2. Type in `git branch --list`. This will show you all of the branches that exist for this repository. In this case, you should only see the branch `master`
+> 3. To create a new branch, type in `git branch <branch-name>` and press `Enter`
+> 4. Try `git branch --list` again- you should see that your new branch now appears in this list, but that you're still working on the `master` branch
+> 5. To switch to your branch, type in the command `git checkout <branch-name>`
+> 6. If you feel so inclined, try making some changes to this `README.md` file.
+>     - To commit to this branch, follow the same procedure from Exercises 3-4 using `git add` and `git commit`
+>     - **Don't do this**, but if you wanted to push this branch to GitHub, you can use `git pull origin <branch-name>` and `git push origin <branch-name>`
+> 7. To delete this branch, first switch back to the `master` branch using `git checkout master`, then enter the command `git branch -D <branch-name>`
+
+---
+
+# Merging branches {#merge}
+## Closing a branch {#merge-close}
+If you're done with a branch, you may want to incorporate the changes made in that branch back into the `master` branch. We're not going to do an exercise here, but here's how you can do that:
+
+1. Switch back to the `master` branch using `git checkout master`
+2. Enter the command `git merge <branch-name>`
+3. If everything goes well, the merge is successful and a new commit will be made that signals that the two branches were merged.
+
+## Updating a branch {#merge-update}
+If, conversely, you're still working on your branch but you want to incorporate some new changes on the `master` branch into your branch, you can do basically the same thing:
+
+1. Switch back to your branch using `git checkout <branch-name>`
+2. Enter the command `git merge master`
+3. If everything goes well, the merge is successful and a new commit will be made that signals that the two branches were merged.
+
+Finally, note that you can update your branch with changes from *any other branch*, not just the `master` branch. In that case, just use the proper branch name in your call to `git merge`.
+
+## Merge conflicts {#merge-conflicts}
+Sometimes, if the set of changes made in the two branches you're merging are incompatible with each other (say, each branch added a different line to the same file in the same place), you will get a warning that there was a *merge conflict*. To resolve this conflict, you simply need to choose which version of your file you want to keep.
+
+> ### Exercise 8: resolving a merge conflict
+> If you got a warning message about a "merge conflict" when you used `git pull` to update your local repository with the most up-to-date version on GitHub, it's probably because someone else put their name in the same place that you did. In order to have both names displayed on this page, we need to resolve this conflict:
+>
+> 1. Open up a terminal and navigate to your local repository
+> 2. Enter the command `git status`- it should tell you that both branches modified the file `README.md`
+> 3. Open the `README.md` file in a text editor of your choice and scroll to where you added your name
+> 4. You should see some funky text that looks like this:
+>    ```
+>    <<<<<<< HEAD
+>    - <your name>
+>    =======
+>    - <someone else's name>
+>    >>>>>>> <some funky commit number>
+>    ```
+> 5. The signs `<<<<<<<`, `=======`, and `>>>>>>>` are markers that tell you where the merge conflict happened, which changes are yours, and which changes are someone else's. To keep both changes and resolve the conflict, simply delete the lines containing these markers
+> 6. To continue the merging process, you can either use `git merge --continue` or `git commit`.
+
+Sadly, the weird world of merge conflicts can get pretty messy, and most merge conflicts won't be as easy as this to resolve. Still, these basic steps apply: locate the sources of the conflict, choose which set of changes you want, then commit your merged branches to finalize the merge.
 
 ---
 
 # Declaration of Git Wizardy {#declaration}
+If you made it all the way through this tutorial, congratulations! You now have all of the tools you need to start version-controlling like the best. As proof of your tremendous journey, add your name to this list of venerable scholars!
+
 We, the undersigned, hereby authorize ourselves as official git wizards:
 
 - Kevin O'Neill
