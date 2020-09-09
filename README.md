@@ -303,6 +303,5 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 - Maria Khoudary
 - Miles Martinez
 - Shenyang Huang
-
 - Morgan Taylor
 
