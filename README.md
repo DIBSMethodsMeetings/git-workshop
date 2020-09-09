@@ -301,3 +301,4 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 - Raphael Geddert
 - Maria Khoudary
 - Miles Martinez
+- Shenyang Huang
