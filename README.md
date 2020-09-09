@@ -297,4 +297,6 @@ If you made it all the way through this tutorial, congratulations! You now have 
 We, the undersigned, hereby authorize ourselves as official git wizards:
 
 - Kevin O'Neill
+- Raphael Geddert
 - (insert your name here!)
+
