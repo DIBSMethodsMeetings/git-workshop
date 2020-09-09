@@ -298,4 +298,5 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 
 - Kevin O'Neill
 - Candice Wang
+- Raphael Geddert
 - (insert your name here!)
