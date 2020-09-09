@@ -298,5 +298,6 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 
 - Kevin O'Neill
 - Candice Wang
+- John Graner
 - Raphael Geddert
 - Miles Martinez
