@@ -300,3 +300,4 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 - John Graner
 - Raphael Geddert
 - Miles Martinez
+- Shenyang Huang
