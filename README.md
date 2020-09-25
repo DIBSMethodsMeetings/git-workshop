@@ -305,3 +305,4 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 - Shenyang Huang
 - Morgan Taylor
 - Anne Draelos
+- Matthew Slayton
