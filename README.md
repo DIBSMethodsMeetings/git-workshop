@@ -306,3 +306,5 @@ We, the undersigned, hereby authorize ourselves as official git wizards:
 - Morgan Taylor
 - Anne Draelos
 - Matthew Slayton
+- Jane Rothrock
+
